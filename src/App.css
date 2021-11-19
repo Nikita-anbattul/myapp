@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  min-height: 100vh;
+  /* background-image: url('https://media.istockphoto.com/photos/dramatic-sunset-and-sunrise-sky-picture-id1189377587?k=20&m=1189377587&s=612x612&w=0&h=sbscQ-pW6CWdW2aiDvJY0l-X5azgMzQbIes2ilQaU2k='); */
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(linear, left bottom, left top, from(#30cfd0), to(#330867));
+  background-image: -webkit-linear-gradient(bottom, #30cfd0 0%, #330867 100%);
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); 
+  box-shadow: 0 5px 10px rgba(250, 249, 252, 0.5),
+}
+/* .appmain{
+  position: absolute;
+  top:1%;
+  left:1.2%;
+}
+.cloud{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url('./images/cloud.png');
+  border-radius:10px ;
+  opacity: 0.5; 
+   /* z-index: 4;  */
+  /* background-position:0 540px; */
+   /* animation: animate 60s linear infinite;
+}
+
+ @keyframes animate{
+  0%{
+    background-position: 0px; 
+  }
+  100%{
+    background-position: 5440px; 
+  }
+}   */

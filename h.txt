@@ -1,0 +1,100 @@
+<div className="main">
+        {/* <pre>{JSON.stringify(data.current, null, 4)}</pre> */}
+
+        <div className="box" id="box">
+          {/* dark mode button
+          <button
+            className="mode"
+            onClick={(e) =>
+              setTheme(
+                theme.mode === 'dark' ? { mode: 'light' } : { mode: 'dark' }
+              )
+            }
+          >
+            Theme change
+          </button> */}
+
+          <div className="input_search">
+            {/*input of city*/}
+            <div className="input">
+              <form onSubmit={handleS}>
+              <input
+                type="Search"
+               
+                placeholder="Enter name of city"
+                onChange={ (e)=>{newS=e.target.value;}}
+              />
+              <button ></button>
+              </form>
+            </div>
+            <div className="icon">
+              <i className="fas fa-search"></i>
+            </div>
+          </div>
+
+          {!data ? (
+            <p>NO DATA FOUND</p>
+          ) : (
+            <>
+              <div className="nextpage">
+                <div className="info">
+                  <h2 className="temp">{current?.temp}°C</h2>
+
+                  <h2 className="Location">
+                    <i className="fas fa-street-view"></i>
+                    {search}
+                  </h2>
+                </div>
+              </div>
+
+              <h3 className="InfoName">INFORMATION</h3>
+
+              <div className="hourly">
+                <h3>HOURLY FORECAST</h3>
+
+                <ol>
+                  {data.hourly.map((x, key) => (
+                    <div className="card">
+                      {settimes(key)}
+                      <br />
+                      <i class="fas fa-cloud"></i>
+                      <br />
+                      {x.temp}°<span className="celcius">C</span>
+                    </div>
+                  ))}
+                </ol>
+              </div>
+
+              <div className="daily">
+                <h3>DAILY FORECAST</h3>
+
+                <ol>
+                  {data.daily.slice(1).map((y, key) => (
+                    <div className="card">
+                      {y.temp.day}°<span className="celcius">C</span> <br />
+                      <i className="fas fa-cloud"></i>
+                      <br />
+                      {setDayOfWeek(key)}
+                    </div>
+                  ))}
+                </ol>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+
+        const latlonuri = `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${API_KEY}`;
+      const latlonres = await fetch(latlonuri);
+      const latlondata = await latlonres.json();
+      // console.log(latlondata, "test");
+      
+      // if(!latlondata){
+      //   setData(false);
+      // }
+      if (latlondata) {
+        const lat= latlondata.coord.lat;
+        const lon= latlondata.coord.lon;
+        const  name= latlondata.name;
+        
+        setCity(name);
